@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LevelingGame.Core.IRepository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using LevelingGame.EntityFrameWork.EFCore;
+using LevelingGame.EntityFrameWork.Repository;
 
 namespace LevelingGame
 {
@@ -24,10 +26,12 @@ namespace LevelingGame
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDbContext<LevelingGameContext>
+            services.AddDbContextPool<LevelingGameContext>
             (
             options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );
+
+            services.AddTransient(typeof(IRepository<,>), typeof(Repository<,>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +54,10 @@ namespace LevelingGame
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+
+                routes.MapRoute(
+                    name: "areaRoute",
+                    template: "{Area:exists}/{controller=User}/{action=Index}/{id?}");
             });
         }
     }

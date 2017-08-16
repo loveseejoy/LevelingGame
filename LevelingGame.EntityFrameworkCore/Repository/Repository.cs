@@ -138,4 +138,15 @@ namespace LevelingGame.EntityFrameWork.Repository
         }
 
     }
+
+    /// <summary>
+    /// 主键为Guid类型的仓储基类
+    /// </summary>
+    /// <typeparam name="TEntity">实体类型</typeparam>
+    public abstract class Repository<TEntity> : Repository<TEntity, int> where TEntity : Entity
+    {
+        public Repository(LevelingGameContext dbContext) : base(dbContext)
+        {
+        }
+    }
 }

@@ -6,6 +6,23 @@ using System.Linq.Expressions;
 
 namespace LevelingGame.Core.IRepository
 {
+    /// <summary>
+    /// 仓储接口定义
+    /// </summary>
+    public interface IRepository
+    {
+
+    }
+
+    /// <summary>
+    /// 默认Guid主键类型仓储
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
+    public interface IRepository<TEntity> : IRepository<TEntity, int> where TEntity : Entity<int>
+    {
+
+    }
+
     public interface IRepository<TEntity, TPrimaryKey> where TEntity : Entity<TPrimaryKey>
     {
 
