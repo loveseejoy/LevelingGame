@@ -1,6 +1,6 @@
 ﻿namespace LevelingGame.Core.Entity
 {
-    public class User:BaseEntity
+    public class User: Entity
     {
         public  string Name { set; get; }
 

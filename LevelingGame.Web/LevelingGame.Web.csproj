@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LevelingGame.EntityFrameworkCore\LevelingGame.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\LevelingGame.Service\LevelingGame.Service.csproj" />
   </ItemGroup>
 

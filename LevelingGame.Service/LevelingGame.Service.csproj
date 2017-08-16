@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LevelingGame.Core\LevelingGame.Core.csproj" />
-    <ProjectReference Include="..\LevelingGame.EntityFrameWork\LevelingGame.EntityFrameWork.csproj" />
   </ItemGroup>
 
 </Project>
