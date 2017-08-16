@@ -5,13 +5,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using LevelingGame.Models;
+using LevelingGame.Service.UserService;
 
 namespace LevelingGame.Controllers
 {
     public class HomeController : Controller
     {
+
+        private readonly IUserService _userService;
+
+        public HomeController(IUserService userService)
+        {
+            _userService = userService;
+        }
+
         public IActionResult Index()
         {
+            _userService.AddUser();
             return View();
         }
 

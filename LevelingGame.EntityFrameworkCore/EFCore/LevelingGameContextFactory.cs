@@ -10,7 +10,7 @@ namespace LevelingGame.EntityFrameWork.EFCore
         public LevelingGameContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<LevelingGameContext>();
-            optionsBuilder.UseSqlServer("server=.;uid=sa;pwd=Ssj123456; database=LevelingDb; Trusted_Connection=True;MultipleActiveResultSets=true");
+            optionsBuilder.UseSqlServer("server=.;database=LevelingDb; Trusted_Connection=True;MultipleActiveResultSets=true");
 
             return new LevelingGameContext(optionsBuilder.Options);
         }

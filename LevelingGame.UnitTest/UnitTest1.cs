@@ -1,3 +1,4 @@
+using LevelingGame.Service.UserService;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LevelingGame.UnitTest
@@ -8,6 +9,7 @@ namespace LevelingGame.UnitTest
         [TestMethod]
         public void TestMethod1()
         {
+           
         }
     }
 }

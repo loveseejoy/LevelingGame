@@ -5,9 +5,9 @@ namespace LevelingGame.Service.UserService
 {
     public class UserService:IUserService
     {
-        private IRepository<User> _useRepository;
+        private IRepository<User,int> _useRepository;
 
-        public UserService(IRepository<User> useRepository)
+        public UserService(IRepository<User,int> useRepository)
         {
             _useRepository = useRepository;
         }
@@ -19,6 +19,7 @@ namespace LevelingGame.Service.UserService
                 Name = "test",
                 Password = "1234"
             });
+
         }
     }
 }

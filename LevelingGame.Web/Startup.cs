@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using LevelingGame.EntityFrameWork.EFCore;
 using LevelingGame.EntityFrameWork.Repository;
+using LevelingGame.Service.UserService;
 
 namespace LevelingGame
 {
@@ -32,6 +33,9 @@ namespace LevelingGame
             );
 
             services.AddTransient(typeof(IRepository<,>), typeof(Repository<,>));
+            //services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
+
+            services.AddTransient<IUserService,UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
